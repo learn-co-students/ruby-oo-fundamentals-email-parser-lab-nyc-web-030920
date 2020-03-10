@@ -10,6 +10,8 @@ class EmailAddressParser
     attr_accessor :email_addresses 
 
     def parse 
-        @email_addresses.split(/[\s,]+/).to_set.to_a
+        @email_addresses.split.map do |email_addresses| 
+            email_addresses.split(',')
+        end.flatten.uniq 
     end 
 end 
